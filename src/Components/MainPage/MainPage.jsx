@@ -31,6 +31,18 @@ const MainPage = () => {
 setPage(prevState => !prevState)
 		}
 	}
+
+const [isMobile, setIsMobile] = React.useState(false)
+
+	React.useEffect(() => {
+		if (window.innerWidth < 768) {
+			setIsMobile(true)
+		}
+		else {
+			setIsMobile(false)
+		}
+	}), [isMobile]
+
 	return (
 		<div className={`container ${MainPageCss.container} `}>
 			<div className={MainPageCss.wrapper}>
@@ -51,7 +63,7 @@ setPage(prevState => !prevState)
 					{cardDetails.map((card, index) => (
 						<div className={MainPageCss.card} key={index}>
 							<div className={MainPageCss.header}>
-								<Link onClick={()=>togglePage(card.path)} to="">{card.title}</Link>
+								<Link onClick={()=>togglePage(card.path)} to={isMobile ? "personal-information" : ""}>{card.title}</Link>
 								<img src={card.img} alt="" />
 							</div>
 							<p>{card.description}</p>
@@ -64,7 +76,7 @@ setPage(prevState => !prevState)
 					</Link>
 				</div>
 			</div>
-			<div className={MainPageCss.external}>{page && <PersonalInformation />}</div>
+			<div className={MainPageCss.external}>{isMobile && page && <PersonalInformation />}</div>
 		</div>
 	);
 };

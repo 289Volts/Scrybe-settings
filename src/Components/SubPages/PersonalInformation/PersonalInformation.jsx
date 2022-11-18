@@ -3,6 +3,11 @@ import PersonalInfo from "./personalInformation.module.scss";
 import { Link } from "react-router-dom";
 
 const PersonalInformation = () => {
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		window.scrollTo(0, 0);
+	}
+
 	return (
 		<div className="container">
 			<div className={PersonalInfo.wrapper}>
@@ -30,7 +35,7 @@ const PersonalInformation = () => {
 						</div>
 						<div className={PersonalInfo.formGroup}>
 							<label htmlFor="">Phone number</label>
-							<input type="number" placeholder="+23470984995736" />
+							<input type="tel" placeholder="+23470984995736" />
 						</div>
 						<div className={`${PersonalInfo.formGroup} ${PersonalInfo.editInput}`}>
 							<label htmlFor="">Email address</label>
@@ -44,7 +49,7 @@ const PersonalInformation = () => {
 							</Link>
 						</div>
 						<div className={`${PersonalInfo.formSubmit} formSubmit`}>
-							<button type="submit">Save changes</button>
+							<button onClick={handleSubmit} >Save changes</button>
 							<Link to="">Verify email</Link>
 </div>
 					</form>
