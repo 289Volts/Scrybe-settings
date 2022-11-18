@@ -1,7 +1,7 @@
 import React from "react";
 import MainPageCss from "./mainpage.module.scss";
-import PersonalInformation from "../SubPages/PersonalInformation";
-import {Link} from "react-router-dom"
+import PersonalInformation from "../SubPages/PersonalInformation/PersonalInformation";
+import { Link } from "react-router-dom";
 
 const MainPage = () => {
 	const cardDetails = [
@@ -24,6 +24,13 @@ const MainPage = () => {
 			img: "/assets/icons/chevron-right.svg",
 		},
 	];
+
+	const [page, setPage] = React.useState(false)
+	const togglePage = (page) => {
+		if (page === "/personal-information") {
+setPage(prevState => !prevState)
+		}
+	}
 	return (
 		<div className={`container ${MainPageCss.container} `}>
 			<div className={MainPageCss.wrapper}>
@@ -44,7 +51,7 @@ const MainPage = () => {
 					{cardDetails.map((card, index) => (
 						<div className={MainPageCss.card} key={index}>
 							<div className={MainPageCss.header}>
-								<Link to={card.path}>{card.title}</Link>
+								<Link onClick={()=>togglePage(card.path)} to="">{card.title}</Link>
 								<img src={card.img} alt="" />
 							</div>
 							<p>{card.description}</p>
@@ -57,6 +64,7 @@ const MainPage = () => {
 					</Link>
 				</div>
 			</div>
+			<div className={MainPageCss.external}>{page && <PersonalInformation />}</div>
 		</div>
 	);
 };

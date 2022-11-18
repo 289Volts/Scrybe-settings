@@ -2,7 +2,10 @@ import React from 'react'
 
 const AccountSettings = () => {
   return (
-    <div>AccountSettings</div>
+    <div className="">
+
+
+    </div>
   )
 }
 
