@@ -10,46 +10,42 @@
 	color: #a9a9a9;
 }
 
-.nav {
-	padding: 0 1rem;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	margin: 1.5rem 1rem 1.9375rem 0;
-	a {
-		display: flex;
-		background-color: #e6f0ff;
-		border-radius: 8px;
-		padding: 0.7rem;
-
-		img {
-			width: 100%;
-		}
-	}
-	.redirect {
-		display: flex;
-		flex: 1;
-
-		h1 {
-			width: 88%;
-			text-align: center;
-			font-size: 1.25rem;
-			font-weight: 300;
-		}
-
-		p {
-			display: none;
-			width: 100%;
-			text-align: center;
-		}
-	}
-}
 .wrapper {
 	padding: 0 1rem;
 
 	a {
 		text-decoration: none;
-		color: black;
+		color: #3f3f3f;
+	}
+
+	.header {
+		display: flex;
+		align-items: flex-end;
+
+		img {
+			width: 27%;
+		}
+
+		.changeImg {
+			background: #e6f0ff;
+			top: 50%;
+			right: 30%;
+
+			border-radius: 62px;
+			translate: -17% 7%;
+
+			a {
+				font-size: 0.75rem;
+				color: #002d6b;
+				display: flex;
+				align-items: end;
+
+				span {
+					padding: 0.4rem 1.25rem 0.4rem 0.25rem;
+					width: 100%;
+				}
+			}
+		}
 	}
 
 	.formGroup {
@@ -86,11 +82,12 @@
 
 	.formSubmit {
 		display: flex;
+		align-items: end;
 		gap: 1rem;
 
 		button {
 			background-color: #006cff;
-			padding: 0.75rem 2rem;
+			padding: 0.8rem 2rem;
 			color: white;
 			border: none;
 			font-size: 0.875rem;
@@ -116,45 +113,14 @@
 			font-size: 0.875rem;
 			font-weight: 500;
 			text-align: center;
+			height: fit-content;
 		}
 	}
 }
 
 @media (min-width: 768px) {
-	.nav {
-		a {
-			display: none;
-		}
-
-		.redirect {
-			width: 100%;
-			h1 {
-				display: none;
-			}
-
-			p,
-			a {
-				display: block;
-				font-size: 0.875rem;
-				font-weight: 300;
-			}
-
-			a {
-				font-weight: 600;
-				color: #006cff;
-				display: inline-flex;
-				background-color: transparent;
-				padding: 0.75rem 0;
-				text-decoration: none;
-			}
-		}
-	}
 	.wrapper {
-		width: 100%;
-	}
-
-	.formSubmit {
-		flex-direction: column;
+		width: 60%;
 	}
 
 	.formSubmit a {
@@ -163,16 +129,18 @@
 }
 @media (min-width: 1024px) {
 	.wrapper {
-		width: 100%;
+		width: 55%;
 		margin-right: 4.5rem;
 	}
 
 	.row {
 		display: flex;
 		gap: 1.5625rem;
+		margin-top: 1.5rem;
 
 		.formGroup {
 			width: 100%;
+			margin-block: 0;
 		}
 	}
 
@@ -182,5 +150,11 @@
 
 	.formSubmit a {
 		text-align: center;
+	}
+}
+
+@media (min-width: 1360px) {
+	.wrapper {
+		width: 100%;
 	}
 }

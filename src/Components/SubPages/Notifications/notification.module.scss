@@ -127,6 +127,7 @@ form {
 		font-family: "Kanit", sans-serif;
 		font-weight: 500;
 		margin-top: 1rem;
+		cursor: pointer;
 	}
 
 	.message {
@@ -182,5 +183,23 @@ form {
 		padding: 1rem;
 		border: 1px solid #006cff;
 		border-radius: 4px;
+	}
+}
+
+@media (min-width: 768px) {
+	
+	.wrapper {
+		width: 60%;
+	}
+
+}
+@media (min-width: 1024px) {
+	.wrapper {
+		width: 55%;
+	}
+}
+@media (min-width: 1360px) {
+	.wrapper {
+		width: 100%;
 	}
 }

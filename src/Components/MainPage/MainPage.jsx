@@ -46,9 +46,6 @@ const MainPage = () => {
 			setIsAccountPage(false);
 			setPage(false);
 		}
-
-		console.log(isPage, isAccountPage, isNotificationPage);
-		console.log(window.innerWidth);
 	};
 
 	React.useEffect(() => {
@@ -66,8 +63,8 @@ const MainPage = () => {
 					<h1>Settings</h1>
 				</div>
 				<div className={MainPageCss.profileCard}>
-					<div className="l-side">
-						<img src="/assets/images/pic.png" alt="" className="" />
+					<div className={MainPageCss.image}>
+						<img src="./assets/images/pic.png" alt="" className="" />
 					</div>
 					<div className={MainPageCss.textContent}>
 						<h2>John Doe</h2>
@@ -80,48 +77,48 @@ const MainPage = () => {
 						onClick={() => togglePage(cardDetails[0].title)}
 						to={window.innerWidth <= 768 ? cardDetails[0].path : ""}
 					>
-						<div className={MainPageCss.card}>
+						<div className={MainPageCss.optionsCard} style={{ backgroundColor: isPage ? "#e6f0ff" : "" }}>
 							<div className={MainPageCss.header}>
 								<h2 className={MainPageCss.heading}>{cardDetails[0].title}</h2>
 								<img src={cardDetails[0].img} alt="" />
 							</div>
-							<p>{cardDetails[0].description}</p>
+							<p style={{ color: isPage ? "#002D6B" : "" }}>{cardDetails[0].description}</p>
 						</div>
 					</Link>
 					<Link
 						onClick={() => togglePage(cardDetails[1].title)}
 						to={window.innerWidth <= 768 ? cardDetails[1].path : ""}
 					>
-						<div className={MainPageCss.card}>
+						<div className={MainPageCss.optionsCard} style={{ backgroundColor: isAccountPage ? "#e6f0ff" : "" }}>
 							<div className={MainPageCss.header}>
 								<h2 className={MainPageCss.heading}>{cardDetails[1].title}</h2>
 								<img src={cardDetails[1].img} alt="" />
 							</div>
-							<p>{cardDetails[1].description}</p>
+							<p style={{ color: isAccountPage ? "#002D6B" : "" }}>{cardDetails[1].description}</p>
 						</div>
 					</Link>
 					<Link
 						onClick={() => togglePage(cardDetails[2].title)}
 						to={window.innerWidth <= 768 ? cardDetails[2].path : ""}
 					>
-						<div className={MainPageCss.card}>
+						<div className={MainPageCss.optionsCard} style={{ backgroundColor: isNotificationPage ? "#e6f0ff" : "" }}>
 							<div className={MainPageCss.header}>
 								<h2 className={MainPageCss.heading}>{cardDetails[2].title}</h2>
 								<img src={cardDetails[2].img} alt="" />
 							</div>
-							<p>{cardDetails[2].description}</p>
+							<p style={{ color: isNotificationPage ? "#002D6B" : "" }}>{cardDetails[2].description}</p>
 						</div>
 					</Link>
 				</section>
 				<div className={MainPageCss.error}>
-					<Link to="login" className={MainPageCss.errorBtn}>
+					<Link to="" className={MainPageCss.errorBtn}>
 						Delete Account
 					</Link>
 				</div>
 			</div>
 			{isPage && !isMobile && (
-				<div style={{}} className={MainPageCss.external}>
-					<PersonalInformation />
+				<div style={{ display: innerWidth <= 768 ? "none" : "block" }} className={MainPageCss.external}>
+					{isPage && !isMobile && <PersonalInformation />}
 				</div>
 			)}
 			<div style={{ display: !isAccountPage ? "none" : "block" }} className={MainPageCss.external}>

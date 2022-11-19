@@ -91,6 +91,7 @@
 			font-size: 0.875rem;
 			font-weight: 500;
 		}
+
 	}
 
 	.apps {
@@ -127,36 +128,9 @@
 }
 
 @media (min-width: 768px) {
-	.nav {
-		a {
-			display: none;
-		}
-
-		.redirect {
-			width: 100%;
-			h1 {
-				display: none;
-			}
-
-			p,
-			a {
-				display: block;
-				font-size: 0.875rem;
-				font-weight: 300;
-			}
-
-			a {
-				font-weight: 600;
-				color: #006cff;
-				display: inline-flex;
-				background-color: transparent;
-				padding: 0.75rem 0;
-				text-decoration: none;
-			}
-		}
-	}
+	
 	.wrapper {
-		width: 100%;
+		width: 60%;
 	}
 
 	.formSubmit {
@@ -165,15 +139,22 @@
 
 	.formSubmit a {
 		text-align: center;
+
 	}
 }
 @media (min-width: 1024px) {
 	.wrapper {
-		width: 100%;
+		width: 55%;
 		margin-right: 4.5rem;
 	}
 
 	.formGroup {
+		width: 100%;
+	}
+}
+
+@media (min-width: 1360px) {
+	.wrapper {
 		width: 100%;
 	}
 }
