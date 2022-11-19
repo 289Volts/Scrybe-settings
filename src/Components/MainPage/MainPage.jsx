@@ -27,12 +27,12 @@ const MainPage = () => {
 		},
 	];
 	const [isMobile, setIsMobile] = React.useState(false);
-	const [isPage, setPage] = React.useState(false);
+	const [isPage, setPage] = React.useState(true);
 	const [isAccountPage, setIsAccountPage] = React.useState(false);
 	const [isNotificationPage, setIsNotificationPage] = React.useState(false);
 	const togglePage = (page) => {
 		if (page === "Personal information") {
-			setPage((prevState) => !prevState);
+			setPage(true);
 			setIsAccountPage(false);
 			setIsNotificationPage(false);
 		}
@@ -119,9 +119,11 @@ const MainPage = () => {
 					</Link>
 				</div>
 			</div>
-			<div style={{ display: !isPage ? "none" : "block" }} className={MainPageCss.external}>
-				{isPage && !isMobile && <PersonalInformation />}
-			</div>
+			{isPage && !isMobile && (
+				<div style={{}} className={MainPageCss.external}>
+					<PersonalInformation />
+				</div>
+			)}
 			<div style={{ display: !isAccountPage ? "none" : "block" }} className={MainPageCss.external}>
 				{isAccountPage && !isMobile && <AccountSetting />}
 			</div>

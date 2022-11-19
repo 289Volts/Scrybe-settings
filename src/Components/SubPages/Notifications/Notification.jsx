@@ -32,22 +32,27 @@ const Notification = () => {
 	const [showMessage, setShowMessage] = React.useState(false);
 	const [showEmail, setShowEmail] = React.useState(false);
 
-  // const toggleEmail = () => {
-  //   if (index === "Distribute report") {
-  //     setShowEmail((prevState) => !prevState);
-  //   }
-  // }
-
 	const toggleMessage = (index) => {
 		if (index === "Get periodic summary") {
 			setShowMessage((prevState) => !prevState);
-    }
-    if (index === "Distribute report") {
+		}
+		if (index === "Distribute report") {
 			setShowEmail((prevState) => !prevState);
 		} else {
-      setShowMessage((prevState) => prevState);
-      setShowEmail((prevState) => prevState);
+			setShowMessage((prevState) => prevState);
+			setShowEmail((prevState) => prevState);
 		}
+	};
+
+	// form validation
+	const [email, setEmail] = React.useState("");
+
+	// const handleEmail = (e) => {
+	// 	setEmail(e.target.value);
+	// };
+	const handleEmailSubmit = (e) => {
+		e.preventDefault();
+		console.log(email);
 	};
 
 	return (
@@ -63,12 +68,12 @@ const Notification = () => {
 					</div>
 					<div className={NotificationCss.options}>
 						<h3>Custom settings</h3>
-						<form action="">
+						<form action="" onSubmit={handleEmailSubmit}>
 							<div className={NotificationCss.option}>
 								{cardDetails.map((card, index) => (
 									<div key={index} className={NotificationCss.optionCard}>
 										<div className={NotificationCss.header}>
-											<h3>{window.innerWidth <= 768 ? card.title : card.mobileTitle}</h3>
+											<h3>{card.title}</h3>
 											<div className={NotificationCss.toggleBtn}>
 												<label htmlFor={index} className={NotificationCss.toggle}>
 													<input
@@ -82,11 +87,11 @@ const Notification = () => {
 											</div>
 										</div>
 										<div className={NotificationCss.optMessage}>
-											<p>{card.description}</p>
+											<p className={NotificationCss.messageDesc}>{card.description}</p>
 											{card.emailTitle && (
 												<div style={{ display: showEmail ? "block" : "none" }} className={NotificationCss.emailInput}>
 													<label htmlFor="emailReport">{card.emailTitle}</label>
-													<input type="email" name="emailReport" id="emailReport" />
+													<input onChange={(e) => setEmail(e.target.value)} type="email" name="emailReport" id="emailReport" />
 												</div>
 											)}
 											{card.option1 && (
