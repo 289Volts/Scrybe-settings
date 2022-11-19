@@ -64,7 +64,7 @@ const MainPage = () => {
 				</div>
 				<div className={MainPageCss.profileCard}>
 					<div className={MainPageCss.image}>
-						<img src="assets/images/pic.png" alt="" className="" />
+						<img src="/assets/images/Pic.png" alt="" className="" />
 					</div>
 					<div className={MainPageCss.textContent}>
 						<h2>John Doe</h2>

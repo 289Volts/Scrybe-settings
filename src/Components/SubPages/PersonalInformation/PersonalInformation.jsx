@@ -14,7 +14,7 @@ const PersonalInformation = () => {
 			<RedirectNav />
 			<div className={PersonalInfo.wrapper}>
 				<div className={PersonalInfo.header}>
-					<img src="assets/images/pic.png" alt="" />
+					<img src="./assets/images/Pic.png" alt="profile picture" />
 					<div className={PersonalInfo.changeImg}>
 						<Link to="">
 							<img src="./assets/icons/blue-pencil.png" alt="pencil icon to edit profile image" />
@@ -48,7 +48,7 @@ const PersonalInformation = () => {
 								{/* <p className={PersonalInfo.message}>{isVerified ? "Verified" : "Unverified"}</p> */}
 							</div>
 							<Link to="/personal-information/edit" className={PersonalInfo.edit}>
-								<img src="assets/icons/edit.svg" alt="" />
+								<img src="./assets/icons/edit.svg" alt="" />
 								<p>EDIT</p>
 							</Link>
 						</div>
