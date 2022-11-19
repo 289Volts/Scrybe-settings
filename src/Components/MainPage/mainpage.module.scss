@@ -23,6 +23,7 @@ $error: #de3d31;
 	.header {
 		font-size: 1rem;
 		font-weight: 600;
+		margin: 1rem 0 1.625rem;
 	}
 
 	.profileCard {
@@ -77,13 +78,16 @@ $error: #de3d31;
 
 		.header {
 			@include flexBtw();
+
+			.heading {
+				font-size: 1rem;
+				font-weight: 600;
+			}
 		}
 
 		a {
 			text-decoration: none;
 			color: black;
-			font-size: 1rem;
-			font-weight: 600;
 		}
 
 		p {
@@ -111,18 +115,42 @@ $error: #de3d31;
 }
 
 @media (min-width: 768px) {
+	.container {
+		display: flex;
+		gap: 1rem;
+	}
 	.external {
-		width: 60%;
+		width: 100%;
+		order: 2;
+		.wrapper {
+			margin-left: 0;
+		}
+	}
+
+	.wrapper {
+		order: 1;
+		width: 40%;
+		.card {
+			.header {
+				.heading {
+					font-size: 1.25rem;
+				}
+			}
+
+			p {
+				font-size: 1.25rem;
+			}
+		}
 	}
 }
 
 @media (min-width: 1024px) {
 	.wrapper {
-		width: 40%;
+		width: 51%;
 	}
 	.container {
 		display: flex;
-		gap: 4rem;
+		gap: 1.5rem;
 	}
 }
 
@@ -131,7 +159,7 @@ $error: #de3d31;
 		width: 40%;
 	}
 	.wrapper {
-		width: 26%;
+		width: 32%;
 	}
 	.container {
 		display: flex;

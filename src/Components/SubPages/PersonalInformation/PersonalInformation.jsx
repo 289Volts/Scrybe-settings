@@ -6,10 +6,21 @@ const PersonalInformation = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		window.scrollTo(0, 0);
-	}
+	};
 
 	return (
 		<div className="container">
+			<div className={PersonalInfo.nav}>
+				<Link to="/" className={PersonalInfo.nav__link}>
+					<img src="/assets/icons/chevron-left.svg" alt="" />
+				</Link>
+				<div className={PersonalInfo.redirect}>
+					<h1 className={PersonalInfo.nav__title}>Settings</h1>
+					<p>
+						You are using the limited free plan. <Link to="">Go unlimited with Pro version</Link>
+					</p>
+				</div>
+			</div>
 			<div className={PersonalInfo.wrapper}>
 				<div className={PersonalInfo.header}>
 					<img src="" alt="" />
@@ -49,9 +60,9 @@ const PersonalInformation = () => {
 							</Link>
 						</div>
 						<div className={`${PersonalInfo.formSubmit} formSubmit`}>
-							<button onClick={handleSubmit} >Save changes</button>
+							<button onClick={handleSubmit}>Save changes</button>
 							<Link to="">Verify email</Link>
-</div>
+						</div>
 					</form>
 				</div>
 			</div>
