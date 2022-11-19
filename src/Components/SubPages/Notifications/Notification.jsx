@@ -63,7 +63,7 @@ const Notification = () => {
 					<h2>Notification</h2>
 					<div className={NotificationCss.card}>
 						<p>Your primary notification email is set to:</p>
-						<h3>johndoe.admin@businessemail...</h3>
+						<h3>johndoe.admin@businessemail.com</h3>
 						<Link to="">Change email</Link>
 					</div>
 					<div className={NotificationCss.options}>
@@ -91,7 +91,12 @@ const Notification = () => {
 											{card.emailTitle && (
 												<div style={{ display: showEmail ? "block" : "none" }} className={NotificationCss.emailInput}>
 													<label htmlFor="emailReport">{card.emailTitle}</label>
-													<input onChange={(e) => setEmail(e.target.value)} type="email" name="emailReport" id="emailReport" />
+													<input
+														onChange={(e) => setEmail(e.target.value)}
+														type="email"
+														name="emailReport"
+														id="emailReport"
+													/>
 												</div>
 											)}
 											{card.option1 && (

@@ -64,7 +64,7 @@ const MainPage = () => {
 				</div>
 				<div className={MainPageCss.profileCard}>
 					<div className={MainPageCss.image}>
-						<img src="./assets/images/pic.png" alt="" className="" />
+						<img src="assets/images/pic.png" alt="" className="" />
 					</div>
 					<div className={MainPageCss.textContent}>
 						<h2>John Doe</h2>
@@ -77,12 +77,12 @@ const MainPage = () => {
 						onClick={() => togglePage(cardDetails[0].title)}
 						to={window.innerWidth <= 768 ? cardDetails[0].path : ""}
 					>
-						<div className={MainPageCss.optionsCard} style={{ backgroundColor: isPage ? "#e6f0ff" : "" }}>
+						<div className={MainPageCss.optionsCard} style={{ backgroundColor: isPage && !isMobile ? "#e6f0ff" : "" }}>
 							<div className={MainPageCss.header}>
 								<h2 className={MainPageCss.heading}>{cardDetails[0].title}</h2>
 								<img src={cardDetails[0].img} alt="" />
 							</div>
-							<p style={{ color: isPage ? "#002D6B" : "" }}>{cardDetails[0].description}</p>
+							<p style={{ color: isPage && !isMobile ? "#002D6B" : "" }}>{cardDetails[0].description}</p>
 						</div>
 					</Link>
 					<Link
