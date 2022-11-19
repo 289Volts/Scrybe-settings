@@ -65,48 +65,111 @@
 	}
 }
 
-// make toggle switch
-.toggle {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: end;
-	width: 40px;
-	height: 24px;
+form {
+	.toggle {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		width: 40px;
+		height: 24px;
 
-	input {
-		width: 0;
-		height: 0;
-		opacity: 0;
-	}
+		input {
+			width: 0;
+			height: 0;
+			opacity: 0;
+		}
 
-	.slider {
-		position: absolute;
-		inset: 0;
-		cursor: pointer;
-		border: 2px solid #c5c5c5;
-		border-radius: 20px;
-
-		&::before {
+		.slider {
 			position: absolute;
-			content: "";
-			background-color: #c5c5c5;
-			width: 16px;
-			height: 16px;
-			left: 4px;
-			bottom: 2px;
-			transition: 0.4s;
-			border-radius: 50%;
+			inset: 0;
+			cursor: pointer;
+			border: 2px solid #c5c5c5;
+			border-radius: 20px;
+
+			&::before {
+				position: absolute;
+				content: "";
+				background-color: #c5c5c5;
+				width: 16px;
+				height: 16px;
+				left: 4px;
+				bottom: 2px;
+				transition: 0.4s;
+				border-radius: 50%;
+			}
+		}
+
+		input:checked + .slider {
+			background-color: white;
+
+			border: 2px solid #006cff;
+		}
+		input:checked + .slider::before {
+			translate: 13px;
+			background: #006cff;
 		}
 	}
 
-	input:checked + .slider {
-		background-color: white;
-
-		border: 2px solid #006cff;
-	}
-	input:checked + .slider::before {
-		translate: 13px;
+	button {
+		color: white;
+		padding: 1rem 2rem;
 		background: #006cff;
+		border-radius: 4px;
+		border: none;
+		font-family: "Kanit", sans-serif;
+		font-weight: 500;
+		margin-top: 1rem;
+	}
+
+	.message {
+		p {
+			font-size: 0.875rem;
+			font-weight: 300;
+			color: #3f3f3f;
+		}
+	}
+
+	.optMessage {
+		p {
+			color: #6a6a6a;
+		}
+
+		label {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		input {
+			height: 24px;
+			width: 24px;
+		}
+
+		.message {
+			margin-block: 32px;
+			display: none;
+		}
+	}
+}
+
+.emailInput {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	margin-bottom: 1.25rem;
+
+	label {
+		font-size: 0.75rem;
+		color: #6a6a6a;
+		margin-top: 1.25rem;
+	}
+
+	input {
+		width: 100% !important;
+        height: 100% !important;
+		padding: 1rem;
+		border: 1px solid #006cff;
+		border-radius: 4px;
 	}
 }

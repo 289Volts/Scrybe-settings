@@ -17,13 +17,38 @@ const Notification = () => {
 			title: "Get periodic summary",
 			description:
 				"Allow us to send you a weekly/monthly summary of all your activities including transcriptions and sentiment analysis conducted.",
+			option1: "Get summary at the end of every week",
+			option2: "Get summary at the end of every month",
 		},
 		{
 			title: "Distribute report",
+			mobileTitle: "Share a copy of reports",
 			description:
 				"Automatically send reports and summaries to officers within your organization via their organization’s email address.",
+			emailTitle: "Enter recipient’s email address:",
 		},
 	];
+
+	const [showMessage, setShowMessage] = React.useState(false);
+	const [showEmail, setShowEmail] = React.useState(false);
+
+  // const toggleEmail = () => {
+  //   if (index === "Distribute report") {
+  //     setShowEmail((prevState) => !prevState);
+  //   }
+  // }
+
+	const toggleMessage = (index) => {
+		if (index === "Get periodic summary") {
+			setShowMessage((prevState) => !prevState);
+    }
+    if (index === "Distribute report") {
+			setShowEmail((prevState) => !prevState);
+		} else {
+      setShowMessage((prevState) => prevState);
+      setShowEmail((prevState) => prevState);
+		}
+	};
 
 	return (
 		<div>
@@ -38,25 +63,58 @@ const Notification = () => {
 					</div>
 					<div className={NotificationCss.options}>
 						<h3>Custom settings</h3>
-						<div className={NotificationCss.option}>
-							{cardDetails.map((card, index) => (
-								<div key={index} className={NotificationCss.optionCard}>
-									<div className={NotificationCss.header}>
-										<h3>{card.title}</h3>
-										<div className={NotificationCss.toggleBtn}>
-											<label htmlFor={index} className={NotificationCss.toggle}>
-												<input id={index} type="checkbox" className={NotificationCss.toggleSwitch} />
-												<span className={NotificationCss.slider}></span>
-											</label>
+						<form action="">
+							<div className={NotificationCss.option}>
+								{cardDetails.map((card, index) => (
+									<div key={index} className={NotificationCss.optionCard}>
+										<div className={NotificationCss.header}>
+											<h3>{window.innerWidth <= 768 ? card.title : card.mobileTitle}</h3>
+											<div className={NotificationCss.toggleBtn}>
+												<label htmlFor={index} className={NotificationCss.toggle}>
+													<input
+														onClick={() => toggleMessage(card.title)}
+														id={index}
+														type="checkbox"
+														className={NotificationCss.toggleSwitch}
+													/>
+													<span className={NotificationCss.slider}></span>
+												</label>
+											</div>
+										</div>
+										<div className={NotificationCss.optMessage}>
+											<p>{card.description}</p>
+											{card.emailTitle && (
+												<div style={{ display: showEmail ? "block" : "none" }} className={NotificationCss.emailInput}>
+													<label htmlFor="emailReport">{card.emailTitle}</label>
+													<input type="email" name="emailReport" id="emailReport" />
+												</div>
+											)}
+											{card.option1 && (
+												<div style={{ display: showMessage ? "block" : "none" }} className={NotificationCss.message}>
+													<label style={{ display: card.option2 ? "flex" : "none" }} htmlFor="weeklyMsg">
+														<p className={NotificationCss.optMessage}>{card.option1}</p>
+														{<input type="checkbox" name="weeklyMsg" id="weeklyMsg" />}
+													</label>
+												</div>
+											)}
+											{card.option2 && (
+												<div style={{ display: showMessage ? "block" : "none" }} className={NotificationCss.message}>
+													{
+														<label style={{ display: card.option2 ? "flex" : "none" }} htmlFor="monthlyMsg">
+															<p className={NotificationCss.optMessage}>{card.option2}</p>
+
+															<input type="checkbox" name="monthlyMsg" id="monthlyMsg" />
+														</label>
+													}
+												</div>
+											)}
 										</div>
 									</div>
-									<p>{card.description}</p>
-								</div>
-							))}
-						</div>
+								))}
+							</div>
+							<button type="submit">Save changes</button>
+						</form>
 					</div>
-
-					<Link to="">Save changes</Link>
 				</div>
 			</div>
 		</div>
