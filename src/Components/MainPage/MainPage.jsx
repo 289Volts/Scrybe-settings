@@ -2,7 +2,7 @@ import React from "react";
 import MainPageCss from "./mainpage.module.scss";
 import PersonalInformation from "../SubPages/PersonalInformation/PersonalInformation";
 import AccountSetting from "../SubPages/AccountSettings/AccountSettings";
-import Notification from "../SubPages/Notification/Notification";
+import Notification from "../SubPages/Notifications/Notification";
 import { Link } from "react-router-dom";
 
 const MainPage = () => {
@@ -78,7 +78,7 @@ const MainPage = () => {
 				<section className={MainPageCss.options}>
 					<Link
 						onClick={() => togglePage(cardDetails[0].title)}
-						to={window.innerWidth < 768 ? cardDetails[0].path : ""}
+						to={window.innerWidth <= 768 ? cardDetails[0].path : ""}
 					>
 						<div className={MainPageCss.card}>
 							<div className={MainPageCss.header}>
@@ -90,7 +90,7 @@ const MainPage = () => {
 					</Link>
 					<Link
 						onClick={() => togglePage(cardDetails[1].title)}
-						to={window.innerWidth < 768 ? cardDetails[1].path : ""}
+						to={window.innerWidth <= 768 ? cardDetails[1].path : ""}
 					>
 						<div className={MainPageCss.card}>
 							<div className={MainPageCss.header}>
@@ -102,7 +102,7 @@ const MainPage = () => {
 					</Link>
 					<Link
 						onClick={() => togglePage(cardDetails[2].title)}
-						to={window.innerWidth < 768 ? cardDetails[2].path : ""}
+						to={window.innerWidth <= 768 ? cardDetails[2].path : ""}
 					>
 						<div className={MainPageCss.card}>
 							<div className={MainPageCss.header}>

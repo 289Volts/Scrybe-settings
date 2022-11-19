@@ -1,5 +1,6 @@
 import React from "react";
 import PersonalInfo from "./personalInformation.module.scss";
+import RedirectNav from "../../RedirectNav/RedirectNav";
 import { Link } from "react-router-dom";
 
 const PersonalInformation = () => {
@@ -10,17 +11,7 @@ const PersonalInformation = () => {
 
 	return (
 		<div className="container">
-			<div className={PersonalInfo.nav}>
-				<Link to="/" className={PersonalInfo.nav__link}>
-					<img src="/assets/icons/chevron-left.svg" alt="" />
-				</Link>
-				<div className={PersonalInfo.redirect}>
-					<h1 className={PersonalInfo.nav__title}>Settings</h1>
-					<p>
-						You are using the limited free plan. <Link to="">Go unlimited with Pro version</Link>
-					</p>
-				</div>
-			</div>
+			<RedirectNav />
 			<div className={PersonalInfo.wrapper}>
 				<div className={PersonalInfo.header}>
 					<img src="" alt="" />

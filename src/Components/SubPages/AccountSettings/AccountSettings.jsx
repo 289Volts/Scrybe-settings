@@ -1,4 +1,5 @@
 import React from "react";
+import RedirectNav from "../../RedirectNav/RedirectNav";
 import AccountPageCss from "./accountSettings.module.scss";
 import { Link } from "react-router-dom";
 
@@ -7,17 +8,7 @@ const AccountSettings = () => {
 
 	return (
 		<div className="">
-			<div className={AccountPageCss.nav}>
-				<Link to="/" className={AccountPageCss.nav__link}>
-					<img src="/assets/icons/chevron-left.svg" alt="" />
-				</Link>
-				<div className={AccountPageCss.redirect}>
-					<h1 className={AccountPageCss.nav__title}>Settings</h1>
-					<p>
-						You are using the limited free plan. <Link to="">Go unlimited with Pro version</Link>
-					</p>
-				</div>
-			</div>
+			<RedirectNav />
 			<div className={AccountPageCss.wrapper}>
 				<div className={AccountPageCss.header}>
 					<h2>Account security</h2>
