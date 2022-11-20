@@ -19,7 +19,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-z-index: 999;
+		z-index: 999;
 
 		.overlayContent {
 			position: relative;
@@ -37,7 +37,7 @@ z-index: 999;
 			h2 {
 				line-height: 32px;
 				color: #de3d31;
-                font-weight: 700;
+				font-weight: 700;
 			}
 
 			p {
@@ -84,7 +84,7 @@ z-index: 999;
 		}
 
 		.redirect {
-            cursor: pointer;
+			cursor: pointer;
 			margin-top: 1rem;
 			text-decoration: none;
 			color: #3f3f3f;
@@ -99,12 +99,11 @@ z-index: 999;
 	.wrapper {
 		.overlay {
 			.overlayContent {
-
 				width: 65%;
 
-                h2 {
-                    font-size: 2rem;
-                }
+				h2 {
+					font-size: 2rem;
+				}
 			}
 		}
 

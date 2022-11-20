@@ -6,7 +6,7 @@ import AccountSetting from "./Components/SubPages/AccountSettings/AccountSetting
 import Notification from "./Components/SubPages/Notifications/Notification";
 import Overlay from "./Components/Overlay/Overlay";
 
-function App() {
+function Index() {
 	return (
 		<div className="App">
 			<Router>
@@ -22,4 +22,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Index;
