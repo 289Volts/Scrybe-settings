@@ -19,6 +19,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+z-index: 999;
 
 		.overlayContent {
 			position: relative;
@@ -74,7 +75,7 @@
 			border-radius: 4px;
 			padding: 0.75rem 2rem;
 			color: #fefefd;
-			font-weight: 700;
+			font-weight: 500;
 			border: none;
 			font-size: 0.875rem;
 			font-family: "Kanit", sans-serif;
