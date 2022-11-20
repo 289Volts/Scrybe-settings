@@ -48,7 +48,7 @@ const PersonalInformation = () => {
 								{/* <p className={PersonalInfo.message}>{isVerified ? "Verified" : "Unverified"}</p> */}
 							</div>
 							<Link to="/personal-information/edit" className={PersonalInfo.edit}>
-								<img src="./assets/icons/edit.svg" alt="" />
+								<img src="/assets/icons/edit.svg" alt="" />
 								<p>EDIT</p>
 							</Link>
 						</div>
