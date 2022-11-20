@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const RedirectNav = () => {
   return (
 		<div>
-			<div className={RedirectNavCss.nav}>
+			<div style={{backgroundColor: window.innerWidth > 768 ? '#e6f0ff' : '' }} className={RedirectNavCss.nav}>
 				<Link to="/" className={RedirectNavCss.nav__link}>
 					<img src="/assets/icons/chevron-left.svg" alt="" />
 				</Link>
