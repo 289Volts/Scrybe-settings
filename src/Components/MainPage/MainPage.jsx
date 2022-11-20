@@ -3,6 +3,7 @@ import MainPageCss from "./mainpage.module.scss";
 import PersonalInformation from "../SubPages/PersonalInformation/PersonalInformation";
 import AccountSetting from "../SubPages/AccountSettings/AccountSettings";
 import Notification from "../SubPages/Notifications/Notification";
+import Overlay from "../Overlay/Overlay";
 import { Link } from "react-router-dom";
 
 const MainPage = () => {
@@ -22,7 +23,7 @@ const MainPage = () => {
 		{
 			path: "/notification",
 			title: "Notification",
-			description: "Updates, Newsletter, period based summary report, change notification email, report carbon copy.",
+			description: "Change how we send you updates, newsletters, periodic summaries, and other notifications",
 			img: "/assets/icons/chevron-right.svg",
 		},
 	];
@@ -30,6 +31,11 @@ const MainPage = () => {
 	const [isPage, setPage] = React.useState(true);
 	const [isAccountPage, setIsAccountPage] = React.useState(false);
 	const [isNotificationPage, setIsNotificationPage] = React.useState(false);
+
+	const [showModal, setShowModal] = React.useState(false);
+
+	
+
 	const togglePage = (page) => {
 		if (page === "Personal information") {
 			setPage(true);
@@ -57,7 +63,7 @@ const MainPage = () => {
 	}, []);
 
 	return (
-		<div className={`container ${MainPageCss.container} `}>
+		<div className={MainPageCss.container}>
 			<div className={MainPageCss.wrapper}>
 				<div className={MainPageCss.header}>
 					<h1>Settings</h1>
@@ -110,12 +116,15 @@ const MainPage = () => {
 						</div>
 					</Link>
 				</section>
-				<div className={MainPageCss.error}>
+				<div className={MainPageCss.error} onClick={() => setShowModal((prevState) => !prevState)}>
 					<Link to="" className={MainPageCss.errorBtn}>
 						Delete Account
 					</Link>
 				</div>
 			</div>
+
+			{showModal && <Overlay setShowModal={() => setShowModal((prevState) => !prevState, window.scrollTo(0,0))} />}
+
 			{isPage && !isMobile && (
 				<div style={{ display: innerWidth <= 768 ? "none" : "block" }} className={MainPageCss.external}>
 					{isPage && !isMobile && <PersonalInformation />}

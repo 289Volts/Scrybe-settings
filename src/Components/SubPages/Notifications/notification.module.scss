@@ -31,11 +31,11 @@
 			font-weight: 600;
 		}
 
-        a {
-            color: white;
-            font-size: 0.875rem;
+		a {
+			color: white;
+			font-size: 0.875rem;
 			text-underline-offset: 0.2rem;
-        }
+		}
 	}
 
 	.options {
@@ -72,7 +72,7 @@
 	}
 }
 
-form {
+.form {
 	.toggle {
 		position: relative;
 		display: flex;
@@ -139,9 +139,9 @@ form {
 	}
 
 	.optMessage {
-.messageDesc {
-	width: 70%;
-}
+		.messageDesc {
+			width: 70%;
+		}
 
 		p {
 			color: #6a6a6a;
@@ -177,21 +177,24 @@ form {
 		margin-top: 1.25rem;
 	}
 
-	input {
+	.email {
 		width: 100% !important;
-        height: 100% !important;
+		height: 100% !important;
 		padding: 1rem;
-		border: 1px solid #006cff;
+		border: 1px solid #c5c5c5;
 		border-radius: 4px;
+		font-family: "Kanit", sans-serif;
+
+		&:focus {
+			outline: #006cff !important;
+		}
 	}
 }
 
 @media (min-width: 768px) {
-	
 	.wrapper {
 		width: 60%;
 	}
-
 }
 @media (min-width: 1024px) {
 	.wrapper {

@@ -19,13 +19,13 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		z-index: 1000;
 
 		.overlayContent {
 			position: relative;
 			height: fit-content;
 			background-color: #fefefd;
 			width: 90%;
-			border: 1px solid #de3d31;
 			border-radius: 8px;
 			padding: 1.5rem;
 			-webkit-backdrop-filter: blur(33px);
@@ -35,25 +35,30 @@
 
 			h2 {
 				line-height: 32px;
-				color: #de3d31;
-                font-weight: 700;
-			}
-
-			p {
-				margin-block: 0.75rem;
+				color: #3f3f3f;
+				font-weight: 700;
 			}
 		}
 	}
 
 	.form {
+		.inputGroup {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+			margin-block: 0.75rem;
+
+			label {
+				margin-top: 0.75rem;
+                font-size: 0.75rem;
+			}
+		}
 		input {
 			width: 100%;
 			padding: 1rem;
 			border: 1px solid #c5c5c5;
 			border-radius: 4px;
-			margin-block: 0.75rem;
 			font-family: "Kanit", sans-serif;
-			margin-bottom: 0.75rem;
 
 			&:focus {
 				outline: none;
@@ -70,7 +75,7 @@
 		button {
 			display: block;
 			width: 100%;
-			background: #de3d31;
+			background: #006cff;
 			border-radius: 4px;
 			padding: 0.75rem 2rem;
 			color: #fefefd;
@@ -83,7 +88,7 @@
 		}
 
 		.redirect {
-            cursor: pointer;
+			cursor: pointer;
 			margin-top: 1rem;
 			text-decoration: none;
 			color: #3f3f3f;
@@ -98,12 +103,11 @@
 	.wrapper {
 		.overlay {
 			.overlayContent {
-
 				width: 65%;
 
-                h2 {
-                    font-size: 2rem;
-                }
+				h2 {
+					font-size: 2rem;
+				}
 			}
 		}
 

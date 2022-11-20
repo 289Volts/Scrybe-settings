@@ -1,22 +1,23 @@
 import React from "react";
 import NotificationCss from "./notification.module.scss";
 import RedirectNav from "../../RedirectNav/RedirectNav";
+import OverlayEmail from "../../Overlay/OverlayEmail";
 import { Link } from "react-router-dom";
 
 const Notification = () => {
 	const cardDetails = [
 		{
 			title: "Stay Up-to-date",
-			description: "Frequently send me App updates and new feature release.",
+			description: "Send me updates about new features",
 		},
 		{
-			title: "Sign up to newsletter",
-			description: "Stay engaged with App news, updates and organization events around you.",
+			title: "Sign up to our newsletter",
+			description: "Become a Scrybe insider. Stay up-to-date with updates from us",
 		},
 		{
 			title: "Get periodic summary",
 			description:
-				"Allow us to send you a weekly/monthly summary of all your activities including transcriptions and sentiment analysis conducted.",
+				"Allow us to send you a weekly/monthly summary of all your activities on Scrybe, including a breakdown of transcriptions and sentiment analysis conducted",
 			option1: "Get summary at the end of every week",
 			option2: "Get summary at the end of every month",
 		},
@@ -24,7 +25,7 @@ const Notification = () => {
 			title: "Distribute report",
 			mobileTitle: "Share a copy of reports",
 			description:
-				"Automatically send reports and summaries to officers within your organization via their organization’s email address.",
+				"Automatically send a copy of reports and summaries to officers within your organization via their work email address",
 			emailTitle: "Enter recipient’s email address:",
 		},
 	];
@@ -46,13 +47,10 @@ const Notification = () => {
 
 	// form validation
 	const [email, setEmail] = React.useState("");
+	const [showModal, setShowModal] = React.useState(false);
 
-	// const handleEmail = (e) => {
-	// 	setEmail(e.target.value);
-	// };
 	const handleEmailSubmit = (e) => {
 		e.preventDefault();
-		console.log(email);
 	};
 
 	return (
@@ -64,11 +62,16 @@ const Notification = () => {
 					<div className={NotificationCss.card}>
 						<p>Your primary notification email is set to:</p>
 						<h3>johndoe.admin@businessemail.com</h3>
-						<Link to="">Change email</Link>
+						<Link to="" onClick={() => setShowModal((prevState) => !prevState)}>
+							Change email
+						</Link>
+						{showModal && (
+							<OverlayEmail setShowModal={() => setShowModal((prevState) => !prevState, window.scrollTo(0, 0))} />
+						)}
 					</div>
 					<div className={NotificationCss.options}>
 						<h3>Custom settings</h3>
-						<form action="" onSubmit={handleEmailSubmit}>
+						<form action="" onSubmit={handleEmailSubmit} className={NotificationCss.form}>
 							<div className={NotificationCss.option}>
 								{cardDetails.map((card, index) => (
 									<div key={index} className={NotificationCss.optionCard}>
@@ -92,6 +95,7 @@ const Notification = () => {
 												<div style={{ display: showEmail ? "block" : "none" }} className={NotificationCss.emailInput}>
 													<label htmlFor="emailReport">{card.emailTitle}</label>
 													<input
+														className={NotificationCss.email}
 														onChange={(e) => setEmail(e.target.value)}
 														type="email"
 														name="emailReport"

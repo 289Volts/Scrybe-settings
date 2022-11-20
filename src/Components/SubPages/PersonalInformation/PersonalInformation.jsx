@@ -14,7 +14,7 @@ const PersonalInformation = () => {
 			<RedirectNav />
 			<div className={PersonalInfo.wrapper}>
 				<div className={PersonalInfo.header}>
-					<img src="./assets/images/Pic.png" alt="profile picture" />
+					<img className={PersonalInfo.profilePic} src="./assets/images/Pic.png" alt="profile picture" />
 					<div className={PersonalInfo.changeImg}>
 						<Link to="">
 							<img src="./assets/icons/blue-pencil.png" alt="pencil icon to edit profile image" />

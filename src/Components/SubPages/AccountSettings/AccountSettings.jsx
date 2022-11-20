@@ -14,7 +14,7 @@ const AccountSettings = () => {
 					<h2>Account security</h2>
 					<p>Change your password</p>
 				</div>
-				<form action="">
+				<form action="" className={AccountPageCss.form}>
 					<div className={AccountPageCss.formGroup}>
 						<label htmlFor="Password">Enter new password:</label>
 						<input type="password" id="Password" placeholder="Enter a new password" />
